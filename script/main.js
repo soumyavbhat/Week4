@@ -25,6 +25,9 @@
           // set the src
           newSubImg.src = "images/" + objectIndex.images[index];
           // add it to the page
+          newSubImg.dataset.index =index;
+          newSubImg.addEventListener('click',function() {popLightBox(index, objectIndex);}, false);
+
           subImages.appendChild(newSubImg);
         });
 
@@ -48,6 +51,12 @@
         image.addEventListener('click', changeElements, false);
       });
  // document.querySelector('#spring').click();
+
+function popLightBox(currentIndex, currentObject){
+  // debugger;
+  let lightbox = document.querySelector('.lightbox');
+  lightbox.style.display = 'block';
+}
 changeElements.call(document.querySelector('#spring'));
 
 })();
