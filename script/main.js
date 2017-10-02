@@ -53,9 +53,24 @@
  // document.querySelector('#spring').click();
 
 function popLightBox(currentIndex, currentObject){
+  window.scrollTo(0,0);
+  document.body.style.overflow = 'hidden';
+
   // debugger;
   let lightbox = document.querySelector('.lightbox');
+  let lightboxImg = lightbox.querySelector('img');
+  let lightboxDesc = lightbox.querySelector('p');
+  let lightboxClose = document.querySelector('.close-lightbox');
   lightbox.style.display = 'block';
+  lightboxImg.src = "images/"+currentObject.images[currentIndex];
+  lightboxDesc.innerHTML = currentObject.imageDescription[currentIndex];
+  lightboxClose.addEventListener = ('click', closeLightbox, false);
+
+}
+
+function closeLightbox(){
+  debugger;
+lightboxClose.classList.add(this.id);
 }
 changeElements.call(document.querySelector('#spring'));
 
